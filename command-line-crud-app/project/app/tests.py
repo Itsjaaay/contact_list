@@ -1,20 +1,19 @@
 from django.test import TestCase
 from .models import Model
+from app import models
 
 
 # Create your tests here.
 class TestModel_test_cases(TestCase):
     def test_Model_creation(self):
-        Model1 = Model(title="dog")
-        Model1.save()
+        Model1 = models.make_Model("Pump")
         self.assertEqual(Model.objects.count(), 1)
 
     def test_read_all_games(self):
         Model1 = Model.objects.create(title="dog")
-        Model1.save()
 
-        Models = Model.objects.all()
-        title = [Model.title for Model in Models]
+        Models = models.read_all_Models()
+        title = [Model1.title for Model in Models]
         self.assertEqual(len(title), 1)
 
     def test_delete_Model(self):

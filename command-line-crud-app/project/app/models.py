@@ -11,8 +11,8 @@ class Model(models.Model):
 
 # create game
 def make_Model(title):
-    Model = Model(title=title)
-    Model.save()
+    Model1 = Model(title=title)
+    Model1.save()
 
 
 # read all
